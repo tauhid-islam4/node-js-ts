@@ -6,24 +6,34 @@ const {
   getProfessions,
 } = require("./objects");
 
-const jack = {
+const tauhid = {
   name: {
     first: "Mohammad",
     last: "Islam",
   },
   status: FullTime,
-  profession: "Engineer",
+  profession: "Engineer and Professor",
+};
+
+const john = {
+  name: {
+    first: "John",
+    last: "Snow",
+  },
+  status: FullTime,
+  profession: "Night's Watch",
 };
 
 // console.log(introducePerson());
-console.log(introducePerson(jack));
+console.log(introducePerson(john));
+console.log(introducePerson(tauhid));
 
-console.log(isFulltimeEmployee(jack));
+console.log(isFulltimeEmployee(tauhid));
 
-console.log(personToString(jack));
+console.log(personToString(tauhid));
 
 console.log(
   getProfessions({
-    1: jack,
+    1: tauhid,
   })
 );
