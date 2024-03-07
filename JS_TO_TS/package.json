@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "start": "ts-node test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "type-coverage": "^2.27.1"
+  }
+}
