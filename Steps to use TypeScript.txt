@@ -1,0 +1,78 @@
+1. Install Typescript compiler
+npm install -g typescript
+2. Test using tsc --help
+
+If this does not work open 'Power Shell' as an administrator and set the execution policy 
+-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+
+If you cannot open Power shell as an administrator try running with the 'CurrentUser' parameter
+-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+3. npm init 
+to create an enpty skeleton
+
+4. npm i -g typescript 
+
+5. tsc --init [Do not do this yet as we will do step 6 to have refined tsconfig.json]
+will give you a default .tsconfig file
+BUT, we want a bit refined version
+
+6. tsc --init --sourceMap --rootDir src --outDir dist
+
+7. create a launch.json file from 'Run/Debug' icon on the left panel/column. 
+Once you click on 'Run/Debug (play button)' it should present an option that says-
+'Create a launch.json file'. Select/click that option to crate the launch.json. 
+[DO NOT CREATE THE launch.json FILE MANUALLY]  
+
+8.  tsc
+Execute step 8 to create the dist directory.
+
+9. You will need to change the launch.json content.
+"program" key under "configurations" initally contains "${workspaceFolder}\\src\\index.ts"
+we need to change it to the "${workspaceFolder}\\dist\\index.js"
+Keep in mind that, we did no thave the dist directory before executing step 8.
+
+
+10. To automatically detect thh changes in ts to the following step
+npm i --save-dev typescript
+
+11. press F1
+Select-
+Tasks: Configure Default Build Task
+
+Then select tsc:watch tsconfig.json
+
+This creates a brand new file called tasks.json
+
+
+
+
+Convert from JS to TS
+
+1. npm install --global yarn
+2. Add Typescript and ts-nodes in this project in Development mode
+	yarn add typescript ts-node -D
+3. change the package.json file to include a new script before devDependencies-
+  "scripts": {
+    "start":"ts-node test.js"
+  },
+4. Test it with-
+  	yarn start
+5. yarn add @types/node -D
+6. yarn add type-coverage
+7. Make a scipt for type-coverage in package.json.
+  "type-coverage": "type-coverage"
+8. yarn type-coverage
+9. If type-coverage result is 100%, it means that we have not used the type of 'any' anywhere in our code 
+10. We try to see if introducePerson() works or not. If it asks for an argument then we can make it optional by adding '?' after the argument.
+11. However, it may blow up as person is undefined. So let us use "Optional Chaining" that is built in TypeScript.
+12. THen use '??' to remove "UNDEFINED" or 'NULL'
+
+
+ENUM
+Type
+Optinal Field
+Optinal arguments to a function
+Optional chaining features
+??
+Type an Object to be used as a map
